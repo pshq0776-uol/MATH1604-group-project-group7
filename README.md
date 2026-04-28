@@ -2,7 +2,7 @@
 
 **Module:** MATH1604 Modelling for Big Data  
 **Assignment:** Group Programming Work (30%)  
-**Deadline:** 2pm, 21st May 2025  
+**Deadline:** 2pm, 21st May 2026  
 **University of Leeds**
 
 ---
