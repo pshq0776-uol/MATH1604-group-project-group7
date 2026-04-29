@@ -19,9 +19,9 @@ The project is divided into four modules, each owned by a team member, and integ
 
 | Member | Role | File |
 |--------|------|------|
-| Danish Imran Agus Bin Faisal | Team Member 1 — Parsing Module | `scripts/data_extraction_M1.py` |
+| Abdulaziz Aldawsari | Team Member 1 — Parsing Module | `scripts/data_extraction_M1.py` |
 | Zimo Wang | Team Member 2 — Download & Collation Module | `scripts/data_preparation_M2.py` |
-| Abdulaziz Aldawsari | Team Member 3 — Analysis Module | `scripts/data_analysis_M3.py` |
+| Danish Imran Agus Bin FaisalAbdulaziz Aldawsari | Team Member 3 — Analysis Module | `scripts/data_analysis_M3.py` |
 | Danish Imran Agus Bin Faisal | Team Member 4 (Leader) — Integration & Execution | `scripts/run_full_analysis_M4.py` |
 
 ---
