@@ -84,7 +84,7 @@ def _extract_from_block(block: str) -> list:
                 answers.append(_get_selected(current_options))
                 current_options = []
 
-        elif line.startswith('[x]') or line.startswith('[ ]'):
+        elif line.upper().startswith('[X]') or line.startswith('[ ]'):
             current_options.append(line)
 
     if current_options:
@@ -108,7 +108,7 @@ def _get_selected(options: list) -> int:
         Position (1-4) of the '[x]' line, or 0 if none is marked.
     """
     for i, opt in enumerate(options, start=1):
-        if opt.startswith('[x]'):
+        if opt.upper().startswith('[X]'):
             return i
     return 0
 
