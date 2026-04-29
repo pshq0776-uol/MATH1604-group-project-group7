@@ -66,7 +66,7 @@ def extract_answers_sequence(file_path: str) -> list:
                     answers.append(selected)
                     current_options = []
 
-            elif line.startswith('[x]') or line.startswith('[ ]'):
+            elif line.upper().startswith('[X]') or line.startswith('[ ]'):
                 current_options.append(line)
 
     if current_options:
@@ -103,7 +103,7 @@ def _get_selected_option(options: list) -> int:
         or 0 if no option was selected (unanswered question).
     """
     for i, option in enumerate(options, start=1):
-        if option.startswith('[x]'):
+        if option.lower().startswith('[x]'):
             return i
     return 0
 
