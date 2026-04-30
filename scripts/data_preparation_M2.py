@@ -11,6 +11,8 @@ Role: Team Member 2
 import os
 import urllib.request
 import urllib.error
+import requests
+import logging
 from typing import Optional, Tuple, List
 DEFAULT_TIMEOUT = 10
 RESPONDENT_PREFIX = "answers_respondent_"
@@ -18,6 +20,9 @@ FILE_SUFFIX = ".txt"
 SEPARATOR_LINE = "*"
 COLLATED_FILENAME = "collated_answers.txt"
 OUTPUT_DIR = "output"
+
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 def download_answer_files(cloud_url: str, path_to_data_folder: str, total_respondents: int) -> None:
     """
