@@ -120,6 +120,9 @@ def collate_answer_files(data_folder_path: str) -> None:
     Returns
     -------
     None
+        Function performs file collation and writes the merged result 
+        to output/collated_answers.txt with no return value.
+    """
 
     Raises
     ------
