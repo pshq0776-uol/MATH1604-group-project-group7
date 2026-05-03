@@ -1,6 +1,6 @@
 """
 data_extraction_M1.py
-=====================
+
 Module for parsing Python quiz answer files and writing extracted sequences.
 
 This module is part of the MATH1604 Group Project and implements the
@@ -17,38 +17,46 @@ import re
 
 def extract_answers_sequence(file_path: str) -> list:
     """
-    Parse a quiz answer text file and extract the respondent's answer sequence.
+ Extract the sequence of answers that a respondent selected from a text file that
+ contains the raw data from each respondent.
 
-    Each question in the file has four answer options marked with square
-    brackets. A selected answer is indicated by '[x]', and an unanswered
-    question has all brackets empty '[ ]'. This function reads the file,
-    identifies which option was selected for each question, and returns
-    a list of integers representing the answers.
+ This function will read the file that contains the 100 questions with the answer
+ choices denoted by brackets. When the function detects either [x] or [X] it will 
+ record the selected answer for that question (answers are denoted as 1-4). If
+ the brackets within the question remain empty [ ] the question will be recorded
+ as a 0 indicating that the respondent did not answer that question.
 
-    Parameters
-    ----------
-    file_path : str
-        Path to the quiz answers text file (e.g., 'data/a1.txt').
 
-    Returns
-    -------
-    list of int
-        A list of exactly 100 integers. Each value is:
-        - 1, 2, 3, or 4 if the corresponding option was selected,
-        - 0 if the question was left unanswered.
+ Parameters
+ ----------
 
-    Raises
-    ------
-    FileNotFoundError
-        If the specified file does not exist at the given path.
-    ValueError
-        If the file does not contain exactly 100 questions.
+ file_path : str
+     The relative or absolute path to the file containing the quiz answers from 
+     each respondent.
 
-    Examples
-    --------
-    >>> answers = extract_answers_sequence('data/a1.txt')
-    >>> print(answers[:5])
-    [1, 2, 0, 3, 4]
+ Returns
+ -------
+
+ list of int
+     A list containing the sequence of 100 answers selected by the respondent.
+
+ Raises
+ ------
+ FileNotFoundError
+     FileNotFoundError will be raised if the text file cannot be located.
+ ValueError
+     ValueError will be raised if the document does not contain the 100 quiz
+     questions that were defined in the quiz.
+
+ Notes
+ -----
+ The function is case-insensitive in that it will detect both upper- and lowercase
+ 'X' answers from the respondents.
+
+ Examples
+ --------
+ >> extract_answers_sequence('data/a1.txt')
+ [1, 2, 0, 3, 4]
     """
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Answer file not found: {file_path}")
