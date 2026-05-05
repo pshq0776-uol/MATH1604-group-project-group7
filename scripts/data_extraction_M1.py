@@ -1,7 +1,6 @@
 """
 data_extraction_M1.py
 
-Module for parsing Python quiz answer files and writing extracted sequences.
 
 This module is part of the MATH1604 Group Project and implements the
 data extraction layer of the analysis pipeline.
@@ -92,23 +91,22 @@ def extract_answers_sequence(file_path: str) -> list:
 
 def _get_selected_option(options: list) -> int:
     """
-    Determine which option was selected from a list of answer option lines.
+  Determine which of the answer options was selected.
+  This is a private helper function used internally by
+  extract_answers_sequence. It inspects each option line to determine
+  which line begins with '[x]'.
 
-    This is a private helper function used internally by
-    extract_answers_sequence. It inspects each option line and returns
-    the 1-indexed position of the line beginning with '[x]'.
+  Parameters
+  ----------
+  options : list of str
+    A list of up to 4 answer option strings, each beginning with
+    '[x]' (selected) or '[ ]' (not selected).
 
-    Parameters
-    ----------
-    options : list of str
-        A list of up to 4 answer option strings, each starting with
-        '[x]' (selected) or '[ ]' (not selected).
-
-    Returns
-    -------
-    int
-        The 1-indexed position (1-4) of the selected option,
-        or 0 if no option was selected (unanswered question).
+  Returns
+  -------
+  int
+    The 1-indexed position (1-4) of the selected answer option,
+    0 if no answer option was selected (unanswered question).
     """
     for i, option in enumerate(options, start=1):
         if option.lower().startswith('[x]'):
