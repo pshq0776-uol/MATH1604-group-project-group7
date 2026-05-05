@@ -116,41 +116,37 @@ def _get_selected_option(options: list) -> int:
 
 def write_answers_sequence(answers: list, n: int, destination_path: str) -> None:
     """
-    Write an extracted answer sequence to a text file.
+Write an extracted answer sequence to a text file.
+The output file is named according to the format 'answers_list_respondent_n.txt' and is
+saved inside the folder specified by the argument 'destination_path'. Each answer
+ integer is written on a separate line within the text file.
 
-    The output file is named 'answers_list_respondent_n.txt' and is saved
-    inside the folder specified by destination_path. Each answer integer
-    is written on a separate line.
+Parameters
+----------
+answers : list of int
+  A list of 100 integers between 1 and 4 (or 0 for unanswered questions).
+n : int
+ The identifier of the respondent providing the answers.
+destination_path : str
+    The path of the folder in which the text file should be created and saved.
 
-    Parameters
-    ----------
-    answers : list of int
-        A list of exactly 100 integers representing the answer sequence,
-        where each value is 1, 2, 3, 4, or 0 (unanswered).
-    n : int
-        The respondent's identifier (positive integer), used in the
-        output filename.
-    destination_path : str
-        The folder path where the output file should be saved.
-        The folder must already exist.
+Returns
+-------
+None
 
-    Returns
-    -------
-    None
+Raises
+------
+ValueError
+    If the 'answers' list does not contain 100 integers
+FileNotFoundError
+    If the 'destination_path' folder does not exist
+TypeError
+    If the 'n' argument is not of type 'int' or is less than or equal to 0.
 
-    Raises
-    ------
-    ValueError
-        If answers does not contain exactly 100 entries.
-    FileNotFoundError
-        If destination_path does not exist.
-    TypeError
-        If n is not a positive integer.
-
-    Examples
-    --------
-    >>> write_answers_sequence(answers, 1, 'output')
-    # Creates 'output/answers_list_respondent_1.txt'
+Examples
+--------
+>> write_answers_sequence(answers, 1, 'output')
+    
     """
     if len(answers) != 100:
         raise ValueError(
